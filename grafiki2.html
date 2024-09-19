@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+/* Jakby pan mógł na google chrome to sprawdzać bo na innych są czasami inne szerokości strony*/
+*{
+    scroll-behavior: smooth;
+}
+body{
+    margin: 0;
+    background-image: linear-gradient(200deg,#403B4A,#314755,#e65c00,orange,#F9D423);
+    height: 296.1vh;
+    width: 110%;
+    overflow-x: hidden;
+}
+img{
+    position: fixed;
+    width: 101%;
+}
+h1{
+    position: fixed;
+    z-index: 10;
+    font-size: 13rem;
+    color: red;
+    text-shadow: rgb(0, 0, 0) 3px 0px 0px, rgb(0, 0, 0) 2.83487px 0.981584px 0px, rgb(0, 0, 0) 2.35766px 1.85511px 0px, rgb(0, 0, 0) 1.62091px 2.52441px 0px, rgb(0, 0, 0) 0.705713px 2.91581px 0px, rgb(0, 0, 0) -0.287171px 2.98622px 0px, rgb(0, 0, 0) -1.24844px 2.72789px 0px, rgb(0, 0, 0) -2.07227px 2.16926px 0px, rgb(0, 0, 0) -2.66798px 1.37182px 0px, rgb(0, 0, 0) -2.96998px 0.42336px 0px, rgb(0, 0, 0) -2.94502px -0.571704px 0px, rgb(0, 0, 0) -2.59586px -1.50383px 0px, rgb(0, 0, 0) -1.96093px -2.27041px 0px, rgb(0, 0, 0) -1.11013px -2.78704px 0px, rgb(0, 0, 0) -0.137119px -2.99686px 0px, rgb(0, 0, 0) 0.850987px -2.87677px 0px, rgb(0, 0, 0) 1.74541px -2.43999px 0px, rgb(0, 0, 0) 2.44769px -1.73459px 0px, rgb(0, 0, 0) 2.88051px -0.838247px 0px;
+}
+#zdj1{
+bottom: 370px;
+z-index: 2;
+}
+.g1{
+    left:20px;
+}
+.g2{
+    left:100px;
+}
+#zdj2{
+    width: 80%;
+    left: 180px;
+    bottom: 220px;
+    z-index: 2;
+}
+#zdj3{
+    bottom: 190px;
+    left: -200px;
+    width: 130%;
+    z-index: 2;
+}
+#zdj4{
+    z-index: 2;
+    bottom: -60px;
+}
+#zdj5{
+    width: 25%;
+    bottom: 60px;
+    left: 80px;
+    z-index: 4;
+}
+#zdj6{
+    width: 20%;
+    left: -480px;
+    top: 220px;
+    z-index: 1;
+}
+.cloud1{
+z-index: 7;
+width: 15%;
+left: 220px;
+top: -200px;
+}
+.cloud2{
+z-index: 1;
+width: 18%;
+right: 390px;
+top: 600px;
+}
+.h1{
+left: -200px;
+}
+.h2{
+    left: 855px;
+    top: -400px;
+}
+.h3{
+    right: -200px;
+}
+
+</style>
+<body>
+    <img src="images/gora1.png" alt="" class="g1" id="zdj1">
+    <img src="images/gora2.png" alt="" class="g2" id="zdj1">
+    <img src="images/tlo2.png" alt="" id="zdj2">
+    <img src="images/tlo3.png" id="zdj3"alt="">
+    <img src="images/tlo4.png" alt="" id="zdj4">
+    <img src="images/tent.png" alt="" id="zdj5">
+    <img src="images/sun.png" alt="" id="zdj6">
+    <img src="images/cloud.png" alt="" class="cloud1">
+    <img src="images/cloud.png" alt="" class="cloud2">
+    <h1 class="h1">Z</h1>
+    <h1 class="h2">S</h1>
+    <h1 class="h3">T</h1>
+</div>
+<script>
+const goraR = document.querySelector('.g1')
+const goraL = document.querySelector('.g2')
+const krzak = document.getElementById('zdj3')
+const chmura1 = document.querySelector('.cloud1')
+const chmura2 = document.querySelector('.cloud2')
+const zdj2 = document.getElementById('zdj2')
+const zdj4 = document.getElementById('zdj4')
+const namiot = document.getElementById('zdj5')
+const slonce = document.getElementById('zdj6')
+const h1 = document.querySelector('.h1')
+const h2 = document.querySelector('.h2')
+const h3 = document.querySelector('.h3')
+window.onscroll=()=>{
+    var scrollVal = parseInt(window.scrollY)
+        slonce.style.setProperty('left',`${(scrollVal/2+550)}px`)
+        slonce.style.setProperty('top',`${-Math.sqrt(scrollVal)*12+490}px`)
+        namiot.style.setProperty('left',`${-(scrollVal/2-60)}px`)
+        namiot.style.setProperty('bottom',`${Math.sqrt(scrollVal)*-4+100}px`)
+        goraL.style.setProperty('left',`${-(scrollVal/2-100)}px`)
+        goraR.style.setProperty('left',`${(scrollVal/2+10)}px`)
+        goraL.style.setProperty('top',`${scrollVal/20+310}px`)
+        goraR.style.setProperty('top',`${scrollVal/20+310}px`)
+        chmura1.style.setProperty('top',`${scrollVal/2-850}px`)
+        if(scrollVal>=420){
+            zdj2.style.setProperty('bottom',`${-(scrollVal/8-275)}px`)
+        }
+        if(scrollVal>=800){
+            krzak.style.setProperty('bottom',`${-(scrollVal/8-292)}px`)
+            chmura2.style.setProperty('top',`${scrollVal/-4+700}px`)
+            h1.style.setProperty('left',`${(scrollVal-1200)}px`)
+            h2.style.setProperty('top',`${scrollVal/2-950}px`)
+            h3.style.setProperty('right',`${(scrollVal-1120)}px`)
+        }
+}
+</script>
+</body>
+</html>
